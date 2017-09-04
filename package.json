@@ -1,0 +1,18 @@
+{
+  "name": "build-time",
+  "version": "1.0.1",
+  "description": "Pass a date, returns an object with easy to use values to constuct your own time strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest test"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/ed-watts-87/build-time"
+  },
+  "author": "Ed Watts",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}
