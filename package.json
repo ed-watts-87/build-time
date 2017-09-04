@@ -6,6 +6,9 @@
     "test": "jest test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
+  "release": {
+    "verifyConditions": "condition-circle"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ed-watts-87/build-time"
@@ -13,6 +16,7 @@
   "author": "Ed Watts",
   "license": "ISC",
   "devDependencies": {
+    "condition-circle": "^1.5.0",
     "jest": "^20.0.4",
     "semantic-release": "^7.0.2"
   }
