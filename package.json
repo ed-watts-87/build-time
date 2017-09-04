@@ -1,6 +1,6 @@
 {
   "name": "build-time",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pass a date, returns an object with easy to use values to constuct your own time strings",
   "main": "index.js",
   "scripts": {
