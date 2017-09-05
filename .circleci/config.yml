@@ -40,6 +40,11 @@ jobs:
       - run: yarn test
 
       # Deploy the thing!
-      if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              npm run semantic-release
-      fi
+      - deploy:
+        name: Deploy to NPM if tests pass and branch is master
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            npm run semantic-release
+          else
+            echo "Not master branch, so release not necessary"
+          fi
