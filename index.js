@@ -1,8 +1,14 @@
 buildTime = (date) => {
+  if (date === undefined) {
+    date = new Date();
+  }
 
   const fullMonthText = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
   const shortMonthText = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
   const fullDayText = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
   const shortDayText = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
   // days
@@ -21,7 +27,7 @@ buildTime = (date) => {
   //time
   const hour = (`0${date.getHours()}`).slice(-2);
   const min = (`0${date.getMinutes()}`).slice(-2);
-  const sec = (`0${date.getMinutes()}`).slice(-2);
+  const sec = (`0${date.getSeconds()}`).slice(-2);
 
   //am or pm
   let ampm;
@@ -32,17 +38,36 @@ buildTime = (date) => {
   }
 
   return {
-    day,
-    fullDay,
-    shortDay,
-    month,
-    fullMonth,
-    shortMonth,
-    year,
-    hour,
-    min,
-    sec,
-    ampm
+    getAll: function() {
+      return {
+        day,
+        fullDay,
+        shortDay,
+        month,
+        fullMonth,
+        shortMonth,
+        year,
+        hour,
+        min,
+        sec,
+        ampm
+      }
+    },
+    getNumberDate: function() {
+      return `${day}/${month}/${year}`;
+    },
+    getShortDate: function() {
+      return `${day} ${shortMonth} ${year}`;
+    },
+    getFullDate: function() {
+      return `${fullDay} ${Number(day)} ${fullMonth} ${year}`;
+    },
+    getTime: function() {
+      return `${hour}:${min}:${sec}`;
+    },
+    getTimeStamp: function() {
+      return `${day}/${month}/${year}, ${hour}:${min}:${sec} ${ampm}`
+    }
   };
 }
 
