@@ -29,7 +29,9 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install
+      - run:
+          name: Installing required packages
+          command: yarn install
 
       - save_cache:
           paths:
@@ -37,11 +39,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn test
+      - run:
+          name: Running tests
+          command: yarn test
 
       # Deploy the thing!
       - deploy:
-          name: Deploy to NPM if tests pass and branch is master
+          name: Deploy to NPM if tests pass and branch is Master
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               npm run semantic-release
