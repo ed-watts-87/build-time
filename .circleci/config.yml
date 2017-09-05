@@ -40,4 +40,6 @@ jobs:
       - run: yarn test
 
       # Deploy the thing!
-      - run: npm run semantic-release
+      if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              npm run semantic-release
+      fi
